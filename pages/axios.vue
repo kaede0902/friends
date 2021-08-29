@@ -13,7 +13,41 @@
     <li v-for="(data, key) in json_data" :key="key">
        {{key}} {{data}} 
     </li>
+    <v-simple-table>
+      <template v-slot:default>
 
+        <thead>
+          <tr>
+            <th>
+              email
+            </th>
+            <th>
+              name
+            </th>
+            <th>
+              tel
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            v-for="(data, key) in json_data" :key="key"
+          >
+            <td>
+              {{ key}}
+            </td>
+            <td>
+              {{ data.name}}
+            </td>
+            <td>
+              {{ data.tel}}
+            </td>
+          </tr>
+        </tbody>
+
+      </template>
+    </v-simple-table>
   </section>
 </template>
 
