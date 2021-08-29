@@ -72,18 +72,22 @@ export default {
   },
   methods: {
     addData() {
-      const add_url = url + this.email + '.json'
-      const data = {
-        'name': this.name,
-        'tel': this.tel,
+      if (this.email) {
+        const add_url = url + this.email + '.json'
+        const data = {
+          'name': this.name,
+          'tel': this.tel,
+        }
+        axios.put(add_url, data)
+          .then( ( res ) => {
+            this.email = ''
+            this.name = ''
+            this.tel = ''
+            this.getData()
+          })
+      } else {
+        confirm('cannot add empty data!')
       }
-      axios.put(add_url, data)
-        .then( ( res ) => {
-          this.email = ''
-          this.name = ''
-          this.tel = ''
-          this.getData()
-        })
     },
     getData() {
       axios.get(url + '.json')
