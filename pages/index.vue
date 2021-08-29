@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <v-app>
     <h1>Friends {{ message }} </h1>
     <input v-model="email" />
     <br/>
@@ -9,6 +9,7 @@
     <br/>
     <button @click="addData"> ADD DATA </button>
     <br/>
+    <Modal />
     <v-simple-table>
       <template v-slot:default>
 
@@ -44,14 +45,19 @@
 
       </template>
     </v-simple-table>
-  </section>
+  </v-app>
 </template>
 
 <script>
 import axios from 'axios'
+import Modal from '../components/Modal'
 const url = "https://note-app0902.firebaseio.com/person/"
 
 export default {
+  name: 'index',
+  components: {
+    Modal,
+  },
   data: function() {
     return {
       json_data: {},
