@@ -10,9 +10,6 @@
     <br/>
     <button @click="addData"> ADD DATA </button>
     <br/>
-    <li v-for="(data, key) in json_data" :key="key">
-       {{key}} {{data}} 
-    </li>
     <v-simple-table>
       <template v-slot:default>
 
