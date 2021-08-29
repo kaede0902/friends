@@ -1,7 +1,6 @@
 <template>
   <section>
-    <h1> json placeholder sample</h1>
-    <h1> message: {{ message }} </h1>
+    <h1>Friends {{ message }} </h1>
     <input v-model="email" />
     <br/>
     <input v-model="name" />
