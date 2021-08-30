@@ -1,14 +1,6 @@
 <template>
   <v-app>
     <h1>Friends {{ message }} </h1>
-    <input v-model="email" />
-    <br/>
-    <input v-model="name" />
-    <br/>
-    <input v-model="tel" />
-    <br/>
-    <button @click="addData"> ADD DATA </button>
-    <br/>
     <Modal />
     <v-simple-table>
       <template v-slot:default>
@@ -71,24 +63,6 @@ export default {
     this.getData()
   },
   methods: {
-    addData() {
-      if (this.email) {
-        const add_url = url + this.email + '.json'
-        const data = {
-          'name': this.name,
-          'tel': this.tel,
-        }
-        axios.put(add_url, data)
-          .then( ( res ) => {
-            this.email = ''
-            this.name = ''
-            this.tel = ''
-            this.getData()
-          })
-      } else {
-        confirm('cannot add empty data!')
-      }
-    },
     getData() {
       axios.get(url + '.json')
         .then( (res) => {
